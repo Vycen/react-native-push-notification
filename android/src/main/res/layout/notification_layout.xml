@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_margin="8dp"
+            android:layout_toEndOf="@id/icon"
+            android:layout_toRightOf="@id/icon"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Title"
+                android:textAppearance="@style/NotificationTitle"/>
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Message"
+                android:textAppearance="@style/NotificationText"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <TextView
+            android:id="@+id/horrible"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Horrible"
+            android:padding="20dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/bad"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:text="Bad"
+            android:gravity="center"
+            android:clickable="true"
+            android:padding="20dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/meh"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:text="Meh"
+            android:gravity="center"
+            android:clickable="true"
+            android:padding="20dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/good"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:text="Good"
+            android:gravity="center"
+            android:clickable="true"
+            android:padding="20dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/perfect"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:text="Perfect"
+            android:gravity="center"
+            android:clickable="true"
+            android:padding="20dp"
+            android:background="@drawable/border"/>
+    </LinearLayout>
+
+</LinearLayout>

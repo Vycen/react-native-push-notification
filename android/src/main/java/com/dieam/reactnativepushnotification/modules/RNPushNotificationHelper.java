@@ -18,9 +18,14 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RemoteViews;
 
+import com.dieam.reactnativepushnotification.R;
 import com.facebook.react.bridge.ReadableMap;
 
 import org.json.JSONArray;
@@ -136,6 +141,7 @@ public class RNPushNotificationHelper {
                 return;
             }
 
+
             if (bundle.getString("message") == null) {
                 // this happens when a 'data' notification is received - we do not synthesize a local notification in this case
                 Log.d(LOG_TAG, "Cannot send to notification centre because there is no 'message' field in: " + bundle);
@@ -163,6 +169,8 @@ public class RNPushNotificationHelper {
                     .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setAutoCancel(bundle.getBoolean("autoCancel", true));
+
+            RemoteViews notificationView = new RemoteViews(packageName, R.layout.notification_layout);
 
             String group = bundle.getString("group");
             if (group != null) {
@@ -216,11 +224,19 @@ public class RNPushNotificationHelper {
             }
 
             notification.setSmallIcon(smallIconResId);
+
             String bigText = bundle.getString("bigText");
 
             if (bigText == null) {
                 bigText = bundle.getString("message");
             }
+
+            notificationView.setTextViewText(R.id.title, title);
+            notificationView.setTextViewText(R.id.message, bigText);
+
+            notificationView.setImageViewBitmap(R.id.icon, largeIconBitmap);
+
+            notification.setCustomBigContentView(notificationView);
 
             notification.setStyle(new NotificationCompat.BigTextStyle().bigText(bigText));
 
@@ -293,6 +309,8 @@ public class RNPushNotificationHelper {
                 // No icon for now. The icon value of 0 shows no icon.
                 int icon = 0;
 
+                int[] ids = new int[]{R.id.horrible, R.id.bad, R.id.meh, R.id.good, R.id.perfect};
+
                 // Add button for each actions.
                 for (int i = 0; i < actionsArray.length(); i++) {
                     String action;
@@ -310,7 +328,11 @@ public class RNPushNotificationHelper {
                     actionIntent.putExtra("notification", bundle);
                     PendingIntent pendingActionIntent = PendingIntent.getBroadcast(context, notificationID, actionIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
-                    notification.addAction(icon, action, pendingActionIntent);
+
+                    notificationView.setTextViewText(ids[i], action);
+
+                    notificationView.setOnClickPendingIntent(ids[i], pendingActionIntent);
+
                 }
             }
 
