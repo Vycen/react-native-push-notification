@@ -52,7 +52,9 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="100" >
+        android:weightSum="100"
+        android:divider="@drawable/divider_drawable"
+        android:showDividers="middle">
 
         <TextView
             android:id="@+id/horrible"
@@ -63,7 +65,8 @@
             android:gravity="center"
             android:text="Horrible"
             android:padding="20dp"
-            android:background="@drawable/border"/>
+            android:background="?android:attr/selectableItemBackground"
+        />
 
         <TextView
             android:id="@+id/bad"
@@ -74,7 +77,8 @@
             android:gravity="center"
             android:clickable="true"
             android:padding="20dp"
-            android:background="@drawable/border"/>
+            android:background="?android:attr/selectableItemBackground"
+        />
 
         <TextView
             android:id="@+id/meh"
@@ -85,7 +89,8 @@
             android:gravity="center"
             android:clickable="true"
             android:padding="20dp"
-            android:background="@drawable/border"/>
+            android:background="?android:attr/selectableItemBackground"
+        />
 
         <TextView
             android:id="@+id/good"
@@ -96,7 +101,8 @@
             android:gravity="center"
             android:clickable="true"
             android:padding="20dp"
-            android:background="@drawable/border"/>
+            android:background="?android:attr/selectableItemBackground"
+        />
 
         <TextView
             android:id="@+id/perfect"
@@ -107,7 +113,8 @@
             android:gravity="center"
             android:clickable="true"
             android:padding="20dp"
-            android:background="@drawable/border"/>
+            android:background="?android:attr/selectableItemBackground"
+        />
     </LinearLayout>
 
 </LinearLayout>
