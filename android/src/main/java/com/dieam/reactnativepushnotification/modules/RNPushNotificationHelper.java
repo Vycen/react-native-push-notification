@@ -309,7 +309,7 @@ public class RNPushNotificationHelper {
                 // No icon for now. The icon value of 0 shows no icon.
                 int icon = 0;
 
-                int[] ids = new int[]{R.id.horrible, R.id.bad, R.id.meh, R.id.good, R.id.perfect};
+                int[] ids = new int[]{R.id.bad, R.id.sad, R.id.good, R.id.perfect};
 
                 // Add button for each actions.
                 for (int i = 0; i < actionsArray.length(); i++) {
